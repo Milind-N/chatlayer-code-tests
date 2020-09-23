@@ -46,6 +46,7 @@
   "_moduleAliases": {
     "@root": ".",
     "@app": "./app",
-    "@config": "./app/config"
+    "@config": "./app/config",
+    "@core": "./app/core"
   }
 }
