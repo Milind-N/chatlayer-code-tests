@@ -9,6 +9,18 @@
     "dev": "cross-env NODE_ENV=development nodemon",
     "prod": "cross-env NODE_ENV=production npm start"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "@root/(.*)": "<rootDir>/$1",
+      "@app/(.*)": "<rootDir>/app/$1",
+      "@routes": "<rootDir>/app/routes"
+    },
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chatlayerai/chatlayer-code-tests.git"
@@ -47,6 +59,7 @@
     "@root": ".",
     "@app": "./app",
     "@config": "./app/config",
-    "@core": "./app/core"
+    "@core": "./app/core",
+    "@routes": "./app/routes"
   }
 }

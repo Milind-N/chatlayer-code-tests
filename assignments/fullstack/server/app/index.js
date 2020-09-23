@@ -8,6 +8,8 @@ const logger = require('@core/logger')('app');
 
 require('express-async-errors');
 
+const AppRouter = require('@routes');
+
 const app = express();
 
 // Parse json request body
@@ -25,5 +27,8 @@ app.use(compression());
 // Enable cors
 app.use(cors());
 app.options('*', cors());
+
+// Api routes with versioning enabled.
+app.use('/api', AppRouter);
 
 module.exports = app;
