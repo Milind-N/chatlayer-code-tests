@@ -60,6 +60,7 @@
     "@app": "./app",
     "@config": "./app/config",
     "@core": "./app/core",
-    "@routes": "./app/routes"
+    "@routes": "./app/routes",
+    "@middleware": "./app/middleware"
   }
 }
