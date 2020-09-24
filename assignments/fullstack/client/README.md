@@ -4,6 +4,15 @@
 
 A chat widget that allow the user to send a message to the EchoBot's backend.
 
+## Getting started
+
+1. **Update the BOT_SERVER**  
+Update BOT_SERVER in constants/index.js to appropriate host and port used for running the server
+
+```text
+e.g. 8080
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

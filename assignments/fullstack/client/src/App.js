@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import socketIOClient from "socket.io-client";
 import MessageList from './MessageList'
 import SendMessageForm from './SendMessageForm'
 import { constants } from './constants'
 
+let socket;
 const App = () => {
   const [messages, setMessages] = useState([])
 
@@ -14,7 +16,24 @@ const App = () => {
         text: text
       }
     ])
+
+    if(text) {
+      socket.emit(constants.CHAT_EVENT, text);
+    }
   }
+
+  useEffect(() => {
+    socket = socketIOClient(constants.BOT_SERVER);
+
+    socket.on(constants.CHAT_EVENT, (message) => {
+      setMessages(messages => [ ...messages, {
+        senderId: constants.SERVER_ID,
+        text: message
+      }]);
+    });
+
+    return () => socket.disconnect();
+  }, []);
 
   return (
     <div className="App">
