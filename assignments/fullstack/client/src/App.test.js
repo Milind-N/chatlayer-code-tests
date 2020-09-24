@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 import MessageList from './MessageList'
+import SendMessageForm from './SendMessageForm'
 import { constants } from './constants'
 
 describe('App.js', () => {
@@ -12,5 +13,9 @@ describe('App.js', () => {
 
   it('should render MessageList component', ()=> {
     expect(wrapper.find(MessageList).length).toEqual(1)
+  })
+
+  it('should render SendMessageForm component', ()=> {
+    expect(wrapper.find(SendMessageForm).length).toEqual(1)
   })
 });
