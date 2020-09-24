@@ -40,3 +40,44 @@ h1 {
   width: 100%;
   text-align: center;
 } 
+
+.message-list {
+  bottom: 0;
+  background-color: rgb(202, 201, 201);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden auto;
+  overflow-y: auto;
+  height: 100%;
+  position: relative;
+  padding-top: 1em;
+  font-size: 1em;
+  padding: 0.8rem;
+}
+
+.float-left {
+    align-self: flex-start;
+    max-width: 70%;
+}
+
+.float-right {
+    align-self: flex-end;
+    max-width: 70%;
+}
+
+.background-left {
+  background-color: #262D31;
+  border-radius: 0px 1em 1em 1em;
+}
+
+.background-right {
+  background-color: #1A4740;
+  border-radius: 1em 0px 1em 1em;
+}
+
+.bubble {
+  color: #ffffff;
+  margin: 5px;
+  padding: 10px;
+}
