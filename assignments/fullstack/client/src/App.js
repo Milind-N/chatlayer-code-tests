@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
+import { animateScroll } from "react-scroll";
 import MessageList from './MessageList'
 import SendMessageForm from './SendMessageForm'
 import { constants } from './constants'
@@ -35,6 +36,16 @@ const App = () => {
     return () => socket.disconnect();
   }, []);
 
+  useEffect(() => {
+    scrollToBottom();
+  });
+
+  const scrollToBottom = () => {
+    animateScroll.scrollToBottom({
+      containerId: "message-list"
+    });
+  }
+  
   return (
     <div className="App">
       <div className="header">
