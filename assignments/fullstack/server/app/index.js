@@ -9,6 +9,11 @@ const logger = require('@core/logger')('app');
 require('express-async-errors');
 
 const AppRouter = require('@routes');
+const {
+  handleNotFoundRoutes,
+  errorConverter,
+  errorHandler,
+} = require('@middleware/errors');
 
 const app = express();
 
@@ -30,5 +35,14 @@ app.options('*', cors());
 
 // Api routes with versioning enabled.
 app.use('/api', AppRouter);
+
+// Send back a 404 error for any unknown api request
+app.use(handleNotFoundRoutes);
+
+// Convert error to ApplicationError, if needed.
+app.use(errorConverter);
+
+// Handle express app exceptions.
+app.use(errorHandler);
 
 module.exports = app;

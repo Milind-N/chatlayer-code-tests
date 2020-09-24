@@ -14,4 +14,9 @@ describe('testing-server-routes', () => {
     const { body } = await request(app).get('/api/v1'); 
     expect(body).toEqual({ response: 'Server is up and running.' });
   });
+
+  it('GET / - 404 error', async () => {
+    const { status } = await request(app).get('/'); 
+    expect(status).toEqual(httpStatus.NOT_FOUND);
+  });
 });
